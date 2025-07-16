@@ -5,6 +5,8 @@ wget  https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 chmod +x  Miniconda3-latest-Linux-x86_64.sh
 ./Miniconda3-latest-Linux-x86_64.sh  -b -f -p ../miniconda3
 source  ../miniconda3/bin/activate
+conda tos accept --override-channels --channel  https://repo.anaconda.com/pkgs/main
+conda tos accept --override-channels --channel  https://repo.anaconda.com/pkgs/r
 conda create -n py311 python=3.11 -y
 conda activate py311
 
@@ -15,7 +17,7 @@ pip install -r requirements.txt
 
 # 安装Docker
 sudo apt-get update
-sudo apt install python3-pip git -y && pip3 install -U awscli && pip install pyyaml==5.3.1
+sudo apt install python3-pip git -y && pip3 install -U awscli && pip install pyyaml==6.0.2
 sudo apt install docker.io -y
 # Configure components
 sudo systemctl enable docker && sudo systemctl start docker && sudo usermod -aG docker $USER
